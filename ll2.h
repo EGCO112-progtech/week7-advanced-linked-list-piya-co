@@ -1,10 +1,11 @@
-
+#include <string.h>
 
 // self-referential structure
 struct Node {
    struct Node *nextPtr; // pointer to next node ไปข้างหน้า
 
    int data; // each listNode contains a character
+   char name[50];   
 
    struct Node *pPtr;//เตรียมpointer เพื่อชี้ไปข้างหลังprevios เขียนไว้บนหรือล่างก็ได้ทำงานเหมือนกัน
 }; // end structure listNode
@@ -16,7 +17,7 @@ typedef LLnode *LLPtr; // synonym for ListNode*
 
 int deletes( LLPtr *sPtr, int value );
 int isEmpty( LLPtr sPtr );
-void insert( LLPtr *sPtr, int value );
+void insert( LLPtr *sPtr, int value, char* name);//ประกาศเป็นarray หรือpointerก็ได้ char*
 void printList( LLPtr currentPtr );
 void instructions( void );
 void printlist_reverse(LLPtr currentPtr);
@@ -34,7 +35,7 @@ void instructions( void )
 
 
 // insert a new value into the list in sorted order
-void insert( LLPtr *sPtr, int value )
+void insert( LLPtr *sPtr, int value, char* name )
 {
    LLPtr newPtr; // pointer to new node
    LLPtr previousPtr; // pointer to previous node in list

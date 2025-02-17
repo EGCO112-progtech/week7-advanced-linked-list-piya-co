@@ -2,6 +2,8 @@
 // Inserting and deleting nodes in a list
 #include <stdio.h>
 #include <stdlib.h>
+//#include "ll.h"
+#include "ll2.h"
 
 int main( void )
 { 
@@ -12,6 +14,7 @@ int main( void )
    instructions(); // display the menu
    printf( "%s", "? " );
    scanf( "%u", &choice );
+   //%u
 
    // loop while user does not choose 3
    while ( choice != 3 ) { 
@@ -20,8 +23,10 @@ int main( void )
          case 1:
             printf( "%s", "Enter a number: " );
             scanf( "%d", &item );
-            insert( &startPtr, item ); // insert item in list
+            //insert( &startPtr, item, char* name); // insert item in listมีchar*ตอนทำll2.h
+         
             printList( startPtr );
+            printlist_reverse(startPtr);
             break;
          case 2: // delete an element
             // if list is not empty
@@ -33,6 +38,7 @@ int main( void )
                if ( deletes( &startPtr, item ) ) { // remove item
                   printf( "%d deleted.\n", item );
                   printList( startPtr );
+                  printlist_reverse(startPtr);
                } // end if
                else {
                   printf( "%d not found.\n\n", item );
