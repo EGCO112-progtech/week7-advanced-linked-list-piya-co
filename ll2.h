@@ -45,6 +45,7 @@ void insert( LLPtr *sPtr, int value, char* name )
 
    if ( newPtr != NULL ) { // is space available
       newPtr->data = value; // place value in node
+      strcpy(newPtr->name, name);
       newPtr->nextPtr = NULL; // node does not link to another node
       newPtr->pPtr = NULL;
        
@@ -142,15 +143,12 @@ void printList( LLPtr currentPtr )
 
       // while not the end of the list
       while ( currentPtr->nextPtr!= NULL ) {
-         printf( "%d --> ", currentPtr->data );
+         printf("%d %s --> ", currentPtr->data, currentPtr->name);
          currentPtr = currentPtr->nextPtr;
       } // end while
 
-      printf( "%d --> NULL\n",currentPtr->data );
-       
+      printf("%d %s --> NULL\n",currentPtr->data, currentPtr->name);
 
-     
-       
    } // end else
 } // end function printList
 
@@ -162,12 +160,12 @@ void printlist_reverse(LLPtr currentPtr){
 
          // while not the end of the list
       while ( currentPtr->nextPtr!= NULL ) {
-         //printf( "%d --> ", currentPtr->data );
+         //printf("%d --> ", currentPtr->data, );
          currentPtr = currentPtr->nextPtr;
       } // end while
 
       while(currentPtr!=NULL){
-      printf( "%d --> ",currentPtr->data );
+      printf("%d %s --> ",currentPtr->data, currentPtr->name );
       currentPtr=currentPtr->pPtr;
           
    } // end else
