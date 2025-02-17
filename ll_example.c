@@ -67,7 +67,7 @@ int main( void )
   while(currentPtr!=NULL){
    tempPtr=currentPtr;
    currentPtr=currentPtr->nextPtr;
-   printf("Delete %d",tempPtr->data);
+   printf("Delete %d\n",tempPtr->data);
    free(tempPtr);
   }
    puts( "End of run." );
